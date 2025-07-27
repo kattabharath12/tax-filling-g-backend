@@ -80,8 +80,10 @@ app.use('*', (req, res) => {
 // Error handling middleware (must be last)
 app.use(errorHandler);
 
-// Start server
-app.listen(PORT, () => {
+// Update the server startup section
+const PORT = process.env.PORT || 8000;
+
+app.listen(PORT, '0.0.0.0', () => {
   logger.info(`🚀 Tax Filing Backend Server running on port ${PORT}`);
   logger.info(`📊 Environment: ${process.env.NODE_ENV || 'development'}`);
   logger.info(`🔗 Health check: http://localhost:${PORT}/health`);
